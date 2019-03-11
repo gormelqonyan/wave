@@ -17,7 +17,7 @@ Route::get('/ayceqarteri-patrastum', 'IndexController@card')->name('card');
 Route::get('/web-kayqer-yev-logoner', 'IndexController@portfolio')->name('portfolio');
 Route::get('/web-kayqeri-patrastum', 'IndexController@about')->name('about');
 Route::get('/blog', 'IndexController@blog')->name('blog');
-Route::get('/blog-view', 'IndexController@blogView')->name('blog-view');
+Route::get('/blog-view/{url}', 'IndexController@blogView')->name('blog-view');
 Route::any('/contact', 'IndexController@contact')->name('contact');
 Route::get('/web-kayqeri-spasarkum', 'IndexController@team')->name('team');
 Route::get('/order', 'IndexController@order')->name('order');
@@ -255,7 +255,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
 
 Route::post('mail/send', 'OrderMailController@send')->name('order_mail_post');
-
+Route::get('/lesson/{url}', 'IndexController@lessons')->name('lesson');
 
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('config:clear');
