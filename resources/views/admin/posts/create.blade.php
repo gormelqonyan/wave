@@ -2,7 +2,7 @@
 
 
 
-@section('title') Create News @endsection
+@section('title') Create News Blog @endsection
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-            <h1>Ավելացնել նորություն </h1>
+            <h1>Ավելացնել նորություն (BLOG) </h1>
 
 
 
@@ -60,6 +60,67 @@
 
             </div>
 
+            <div class= "form-group" >
+
+                {!! Form::label('name_en', 'name En*') !!}
+
+                {!! Form::text('name_en', null, ['class' => $errors->has('name_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('name_en'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('name_en') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('url', 'Url Hy*') !!}
+
+                {!! Form::text('url', null, ['class' => $errors->has('name_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('url'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('url') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('url_ru', 'Url Ru*') !!}
+
+                {!! Form::text('url_ru', null, ['class' => $errors->has('name_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('url_ru'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('url_ru') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('url_en', 'Url En*') !!}
+
+                {!! Form::text('url_en', null, ['class' => $errors->has('url_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('url_en'))
+
+                    {{--{{ dd($errors->all()) }}--}}
+
+                    <div class="invalid-feedback">{{ $errors->first('url_en') }}</div>
+
+                @endif
+
+            </div>
+
 
 
 
@@ -81,11 +142,24 @@
 
                 {!! Form::label('description_ru', 'Description (RU) *') !!}
 
-                {!! Form::textarea('description_ru', null, ['rows'=>3, 'id'=>'editor2', 'class' => $errors->has('description_ru') ? 'form-control is-invalid' : 'form-control']) !!}
+                {!! Form::textarea('description_ru', null, ['rows'=>3, 'id'=>'editor1', 'class' => $errors->has('description_ru') ? 'form-control is-invalid' : 'form-control']) !!}
 
                 @if ($errors->has('description_ru'))
 
                     <div class="invalid-feedback">{{ $errors->first('description_ru') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('description_en', 'Description (En) *') !!}
+
+                {!! Form::textarea('description_en', null, ['rows'=>3, 'id'=>'editor2', 'class' => $errors->has('description_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('description_en'))
+
+                    <div class="invalid-feedback">{{ $errors->first('description_en') }}</div>
 
                 @endif
 
@@ -97,15 +171,15 @@
 
             <div class= "form-group" >
 
-                {!! Form::label('url', 'Image *') !!}
+                {!! Form::label('image', 'Image *') !!}
 
-                {!! Form::file('url', null, ['class' => $errors->has('image') ? 'form-control is-invalid' : 'form-control']) !!}
+                {!! Form::file('image', null, ['class' => $errors->has('image') ? 'form-control is-invalid' : 'form-control']) !!}
 
-                @if ($errors->has('url'))
+                @if ($errors->has('image'))
 
                     {{--{{ dd($errors->all()) }}--}}
 
-                    <div class="invalid-feedback">{{ $errors->first('url') }}</div>
+                    <div class="invalid-feedback">{{ $errors->first('image') }}</div>
 
                 @endif
 
@@ -137,3 +211,14 @@
 
 
 
+@section('modal')
+
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
+    <script>
+
+        CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor1');
+        CKEDITOR.replace('editor2');
+    </script>
+@endsection

@@ -14,8 +14,11 @@ class Category extends Model
 
 {
 
-    protected $fillable = ['name',
+    protected $fillable = [
+        'name',
         'url',
+        'url_ru',
+        'url_en',
         'name_ru',
         'name_en',
         'parent_id',
@@ -56,6 +59,21 @@ class Category extends Model
         }
         if(config('app.locale') == 'ru'){
             return $this->name_ru;
+        } if(config('app.locale') == 'en'){
+            return $this->name_en;
+        }
+
+    }
+    public function desc()
+
+    {
+        if(config('app.locale') == 'hy'){
+            return $this->description;
+        }
+        if(config('app.locale') == 'ru'){
+            return $this->description_ru;
+        } if(config('app.locale') == 'en'){
+            return $this->description_en;
         }
 
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Todo;
 
@@ -21,6 +22,16 @@ class IndexController extends Controller
     public function team()
     {
         return view('team');
+    }
+
+    public function lessons($url)
+    {
+        $lesson = Category::where('url',$url)->first();
+
+        if (!$lesson){
+            return redirect()->back();
+        }
+        return view('lesson',['lesson'=>$lesson]);
     }
     public function blog()
     {

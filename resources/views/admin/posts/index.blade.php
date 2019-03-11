@@ -41,9 +41,10 @@
 
 
                         <th>Name</th>
-                        <th>Type</th>
 
-                        <th>File</th>
+
+                        <th>Image</th>
+                        <th>Url</th>
 
 
                         <th>Updated at</th>
@@ -61,10 +62,10 @@
                         <th>Actions</th>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Tipe</th>
 
-                        <th>File</th>
 
+                        <th>Image</th>
+                        <th>Url</th>
 
                         <th>Updated at</th>
 
@@ -103,15 +104,11 @@
                                 <td>{{ $post->id }}</td>
 
                                 <td>{{ $post->name }}</td>
-                                <td>{{ $post->type }}</td>
-                                @if($post->type == 'image')
-                                    <td><img src="{{ asset('/images/posts/'.$post->url) }}" width="100px"></td>
-                                @else
-                                    <td>
-                                        <iframe width="100" height="60" src="{{$post->url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </td>
-                                @endif
 
+
+                                    <td><img src="{{ asset('/images/posts/'.$post->image) }}" width="100px"></td>
+
+                                <td>{{ $post->url }}</td>
 
                                 <td>{{ $post->updated_at }}</td>
 

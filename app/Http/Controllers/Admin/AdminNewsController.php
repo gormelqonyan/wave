@@ -14,20 +14,24 @@ class AdminNewsController extends Controller
     }
 
     public function create(Request $request){
+
         if($request->isMethod('post')){
+
             $this->validate($request, [
                 'name' => 'required',
                 'name_ru' => 'required',
                 'description' => 'required',
                 'description_ru' => 'required',
-                'url' => 'required|image|mimetypes:image/*|max:25000'
+                'image' => 'required|image|mimetypes:image/*|max:25000'
             ]);
-            $file = $request->file('url');
+            $file = $request->file('image');
             $name = time() . $file->getClientOriginalName();
             $file->move('images/posts/', $name);
             $input = $request->all();
-            $input['url'] = $name;
-            $input['type'] = 'image';
+            $input['image'] = $name;
+            $input['url'] = str_slug($request->input('url')).time();
+            $input['url_ru'] = str_slug($request->input('url_ru')).time();
+            $input['url_en'] = str_slug($request->input('url_en')).time();
             Post::create($input);
             $request->session()->flash('alert-success', 'Ավելացվել է');
             return redirect()->route('admin.news.index');

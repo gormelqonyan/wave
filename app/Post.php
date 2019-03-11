@@ -10,16 +10,21 @@ class Post extends Model
         'name',
 
         'name_ru',
+        'name_en',
 
 
 
         'url',
+        'url_ru',
+        'url_en',
+        'image',
 
 
 
         'description',
 
         'description_ru',
+        'description_en',
 
 
 
