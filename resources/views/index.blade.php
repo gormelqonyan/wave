@@ -41,13 +41,13 @@
             <div class="d-flex justify-content-center align-items-center buttonIcon mr-2">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </div>
-            ä³ïíÇñ»É Ï³Ûù
+            @lang('global.order-site')
         </a>
         <a href="#" class="button call-order mx-2 d-flex justify-content-center align-items-center" data-toggle="modal" data-target="#basicExampleModal">
             <div class="d-flex justify-content-center align-items-center buttonIcon mr-2">
                 <i class="fa fa-phone" aria-hidden="true"></i>
             </div>
-            ä³ïíÇñ»É ½³Ý·
+            @lang('global.order-call')
         </a>
     </div>
 
@@ -60,10 +60,10 @@
                 <div class="col-lg-6 wow slideInRight" data-wow-offset="10">
                     <div style="height: 315px; background-color: rgba(255,255,255,.5); padding: 1rem;">
                         <p class="about__text">
-                            Wave-IT- åñáý»ëÇÝ³ÉÝ»ñÇ ÃÇÙ ¿, áñÇÝ Ï³ñáÕ »ù íëï³Ñ»É Ò»ñ Ï³ÛùÇ ëï»ÕÍáõÙÝ áõ Ñ»ï³·³ ³ç³ÏóáõÃÛáõÝÁ: Ø»Ýù ïñ³Ù³¹ñáõÙ »Ýù Í³é³ÛáõÃÛáõÝÝ»ñÇ É³ÛÝ ßñç³Ý³Ï, ¹áõù Ï³ñáÕ »ù íëï³Ñ ÉÇÝ»É, áñ Ò»ñ ËÝ¹ñáí ½µ³Õí»Éáõ »Ý ÷áñÓ³éáõ Ù³ëÝ³·»ïÝ»ñ, áíù»ñ Ñ³çáÕáõÃÛ³Ùµ ³í³ñï»É »Ý µ³½Ù³ÃÇí Ý³Ë³·Í»ñ: Ø»Ýù ³ÝÏ»ÕÍáñ»Ý ëÇñáõÙ »Ýù Ù»ñ ·áñÍÁ ¨ Ï³ñáÕÝáõÙ »Ýù ³ÛÝ å³ïß³× Ï³ï³ñ»É:
+                            @lang('global.waveAbout')
                         </p>
                         <div class="about__text__wave" >
-                            <h2>Ð³ñ·³ÝùÝ»ñáí` Wave-IT ÃÇÙ</h2>
+                            <h2>@lang('global.waveAboutRespect')</h2>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
 
         <div class="container">
             <h1 class="text-center service__title">
-                <span>ì»µ Ï³Ûù»ñÇ å³ïñ³ëïáõÙ</span>
+                <span>@lang('global.CreateWebPage')</span>
             </h1>
 
 
@@ -91,7 +91,7 @@
                             <!-- Title -->
                             <img src="/lessons/img/icon1.png" class="mx-auto">
                             <!-- Subtitle -->
-                            <h4 class="card-header-subtitle mt-3">È»Ý¹ÇÝ·</h4>
+                            <h4 class="card-header-subtitle mt-3">@lang('global.createLendingTitle')</h4>
 
                         </div>
 
@@ -99,11 +99,11 @@
                         <div class="card-body card-body-cascade text-center d-flex flex-column">
 
                             <!-- Text -->
-                            <p class="card-text d-flex align-items-center" style="flex: auto">Ø»Ýù å³ïñ³ëïáõÙ »Ýù É»Ý¹ÇÝ· ¿ç»ñ: È»Ý¹ÇÝ· ¿çÁ Ù»Ï ¿ç³Ýáó Ï³Ûù ¿, áñÝ û·ï³·áñÍíáõÙ ¿ ·áí³½¹³ÛÇÝ, Ù³ñù»ÃÇÝ·³ÛÇÝ ¨ µÇ½Ý»ë Ýå³ï³ÏÝ»ñáí: Ø»Ï ¿çÇ Ù»ç ³ÙµáÕç³óí³Í ï»Õ»Ï³ïíáõÃÛáõÝÁ ³ñ³·, ³ñ¹ÛáõÝ³í»ï áñáßáõÙ Ï³Û³óÝ»Éáõ áõ ·áñÍ»Éáõ ÑÝ³ñ³íáñáõÃÛáõÝ ¿ ï³ÉÇë:</p>
+                            <p class="card-text d-flex align-items-center" style="flex: auto">@lang('global.createLendingText')</p>
 
                             <hr>
 
-                            <h5>êÏë³Í 50.000¹ñ-Çó</h5>
+                            <h5>@lang('global.start') 50.000 @lang('global.price')</h5>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                             <!-- Title -->
                             <img src="/lessons/img/icon2.png" class="mx-auto">
                             <!-- Subtitle -->
-                            <h4 class="card-header-subtitle mt-3">Îáñåáñá³ïÇí</h4>
+                            <h4 class="card-header-subtitle mt-3">@lang('global.createCorporateTitle')</h4>
 
                         </div>
 
@@ -125,11 +125,11 @@
                         <div class="card-body card-body-cascade text-center d-flex flex-column">
 
                             <!-- Text -->
-                            <p class="card-text d-flex align-items-center" style="flex: auto">ä³ïñ³ëïáõÙ »Ýù ó³ÝÏ³ó³Í µ³ñ¹áõÃÛ³Ý Ïáñåáñ³ïÇí Ï³Ûù»ñ: Îáñåáñ³ïÇí Ï³ÛùÇ Ûáõñ³Ñ³ïÏáõÃÛáõÝÝ ³ÛÝ ¿, áñ Éñ³óáõóÇã ýáõÝÏóÇáÝ³ÉáõÃÛáõÝ ¿ ³í»É³óÝáõÙ Ï³ÛùÇÝ: ²ÛÝ ÑÝ³ñ³íáñáõÃÛáõÝ ¿ ï³ÉÇë ï»Õ³¹ñ»É ï»Õ»ÏáõÃÛáõÝÝ»ñ Ï³½Ù³Ï»ñåáõÃÛ³Ý ·áñÍáõÝ»áõÃÛ³Ý ï»ë³ÏÇ, ÏáÝï³Ïï³ÛÇÝ ïíÛ³ÉÝ»ñÇ, Ñ³ëó»Ý»ñÇ, ³é³ç³ñÏíáÕ ³ÏóÇ³Ý»ñÇ, ³åñ³ÝùÝ»ñÇ ¨ Í³é³ÛáõÃÛáõÝÝ»ñÇ Ù³ëÇÝ:</p>
+                            <p class="card-text d-flex align-items-center" style="flex: auto">@lang('global.createCorporateText')</p>
 
                             <hr>
 
-                            <h5>êÏë³Í 100.000¹ñ-Çó</h5>
+                            <h5>@lang('global.start') 100.000 @lang('global.price')</h5>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                             <!-- Title -->
                             <img src="/lessons/img/icon3.png" class="mx-auto">
                             <!-- Subtitle -->
-                            <h4 class="card-header-subtitle mt-3">ÆÝï»ñÝ»ï Ë³ÝáõÃ</h4>
+                            <h4 class="card-header-subtitle mt-3">@lang('global.createSaleTitle')</h4>
 
                         </div>
 
@@ -151,11 +151,11 @@
                         <div class="card-body card-body-cascade text-center d-flex flex-column">
 
                             <!-- Text -->
-                            <p class="card-text d-flex align-items-center" style="flex: auto">ä³ïñ³ëïáõÙ »Ýù ÇÝï»ñÝ»ï Ë³ÝáõÃÝ»ñ, áñáÝù ÏÝå³ëï»Ý Ò»ñ µÇ½Ý»ëÇ ³ñ¹ÛáõÝ³í»ï ³é³çË³Õ³óÙ³ÝÁ ¨ í³×³éùÇ ËÃ³ÝÙ³ÝÁ:</p>
+                            <p class="card-text d-flex align-items-center" style="flex: auto">@lang('global.createSaleText')</p>
 
                             <hr>
 
-                            <h5>êÏë³Í 150.000¹ñ-Çó</h5>
+                            <h5>@lang('global.start') 150.000 @lang('global.price')</h5>
                         </div>
                     </div>
                 </div>
@@ -177,10 +177,10 @@
                         <div class="card-body card-body-cascade text-center d-flex flex-column">
 
                             <!-- Text -->
-                            <p class="card-text d-flex align-items-center" style="flex: auto">ä³ïñ³ëïáõÙ »Ýù Ï³Ûù»ñ WordPress CMS-Ç ÙÇçáóáí: WordPress-Á ÑÝ³ñ³íáñáõÃÛáõÝ ¿ ï³ÉÇë å³ïñ³ëï»É ÇÝãå»ë å³ñ½ µÉá·Ý»ñ ¨ Ã»Ù³ïÇÏ Ï³Ûù»ñ, ³ÛÝå»ë ¿É µÇ½Ý»ë ¨ Ïáñåáñ³ïÇí Ï³Ûù»ñ, ÝáñáõÃÛáõÝÝ»ñÇ åáñï³ÉÝ»ñ</p>
+                            <p class="card-text d-flex align-items-center" style="flex: auto">@lang('global.createWordpresText')</p>
 
 
-                            <h5>êÏë³Í 200.000¹ñ-Çó</h5>
+                            <h5>@lang('global.start') 200.000 @lang('global.price')</h5>
                         </div>
                     </div>
                 </div>
@@ -192,57 +192,57 @@
     <section class="service py-2 py-md-4" id="service">
         <div class="container">
             <h2 class="text-center service__title">
-                <span>Ø»ñ Ì³é³ÛáõÃÛáõÝÝ»ñÁ</span>
+                <span>@lang('global.Our_services')</span>
             </h2>
 
             <div class="row py-2 py-md-4">
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70">
-                        <h3>ì»µ Ì³é³ÛáõÃÛáõÝÝ»ñ</h3>
-                        <p>Î³ÛùÇ Ý³Ë³·ÍáõÙ</p>
-                        <p>ì»µ ¹Ç½³ÛÝ</p>
-                        <p>ÆÝï»ñÝ»ï Ë³ÝáõÃÝ»ñÇ å³ïñ³ëïáõÙ</p>
-                        <p>ÜÛáõÃ»ñÇ ¨ ÝÏ³ñÝ»ñÇ Ã³ñÙ³óáõÙ, ÷á÷áËáõÙ</p>
+                        <h3>@lang('global.Web_services')</h3>
+                        <p>@lang('global.Web_dev')</p>
+                        <p>@lang('global.Web_design')</p>
+                        <p>@lang('global.Site_service')</p>
+                        <p>@lang('global.Technical_audit')</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70" data-wow-delay="0.1s">
-                        <h3>SEO Ï³ÛùÇ ûåïÇÙ³É³óáõÙ</h3>
-                        <p>´³Ý³ÉÇ µ³é»ñÇ í»ñÉáõÍáõÃÛáõÝ/Ùß³ÏáõÙ</p>
-                        <p>ê³ÑÙ³Ýí³Í ÑÇÙÝ³µ³é»ñÇ Ó¨³íáñáõÙ</p>
-                        <p>Ü»ñùÇÝ ûåïÇÙ³É³óáõÙ</p>
-                        <p>²ñï³ùÇÝ ûåïÇÙ³É³óáõÙ</p>
+                        <h3>@lang('global.SEO_optimization')</h3>
+                        <p>@lang('global.Key_words')</p>
+                        <p>@lang('global.Semantic_core')</p>
+                        <p>@lang('global.Internal_optimization')</p>
+                        <p>@lang('global.External_optimization')</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70" data-wow-delay="0.2s">
-                        <h3>ÆÝï»ñÝ»ï Ù³ñù»ÃÇÝ·</h3>
-                        <p>²é³çË³Õ³óáõÙ ëáóÇ³É³Ï³Ý ó³Ýó»ñáõÙ (SMM, SMO)</p>
-                        <p>Ø³ñù»ÃÇÝ·³ÛÇÝ í»ñÉáõÍáõÃÛáõÝ</p>
-                        <p>ÆÝï»ñÝ»ï ·áí³½¹ (Google, Adwords,<br> Yandex direct)</p>
+                        <h3>@lang('global.Internet_marketing')</h3>
+                        <p>@lang('global.Social_media_marketing')</p>
+                        <p>@lang('global.Marketing_analysis')</p>
+                        <p>@lang('global.Internet_advertising')</p>
                     </div>
                 </div>
 
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70" data-wow-delay="0.3s">
-                        <h3>Î³ÛùÇ ³ç³ÏóáõÃÛáõÝ 24/7</h3>
-                        <p>ÐáëÃ/ë»ñí»ñÇ Ï³é³í³ñáõÙ</p>
-                        <p>Î³ÛùÇ í»ñ³Ï³Ý·ÝáõÙ</p>
-                        <p>Î³ÛùÇ µáí³Ý¹³ÏáõÃÛ³Ý ÙáÝÇÃáñÇÝ·</p>
+                        <h3>@lang('global.Time_monitoring')</h3>
+                        <p>@lang('global.Host_server')</p>
+                        <p>@lang('global.Site_recovery')</p>
+                        <p>@lang('global.Domain_registration')</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70" data-wow-delay="0.4s">
-                        <h3>¶ñ³ýÇÏ³Ï³Ý ¹Ç½³ÛÝ</h3>
-                        <p><a href="logoPage.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>Èá·á</a></p>
-                        <p><a href="visit.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>²Ûó»ù³ñï»ñ</a></p>
-                        <p><a href="3ddesign.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>3D ¹Ç½³ÛÝ ÇÝï»ñÇ»ñ</a></p>
-                        <p><a href="banner.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>´³Ý»ñÝ»ñÇ ëï»ÕÍáõÙ</a></p>
+                        <h3>@lang('global.Graphic_design')</h3>
+                        <p><a href="logoPage.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.logo')</a></p>
+                        <p><a href="visit.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.card')</a></p>
+                        <p><a href="3ddesign.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.3d')</a></p>
+                        <p><a href="banner.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.Banner_creation')</a></p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70" data-wow-delay="0.5s">
-                        <h3>Ü³Ë³·ÍáõÙ IOS ¨ Android Ñ³Ù³Ï³ñ·áõÙ</h3>
+                        <h3>@lang('global.IOS_Android')</h3>
                         <p><a href="https://play.google.com/store/apps/details?id=com.birthright"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>Birthright Connect</a></p>
                         <p><a href="https://play.google.com/store/apps/details?id=com.hikearmenia"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>HIKE Armenia</a></p>
                         <p><a href="https://play.google.com/store/apps/details?id=com.learnbat.showme"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>Show Me Interactive</a></p>
@@ -256,7 +256,7 @@
 
     <section class="blog-top" id="blog-top">
         <h2 class="text-center service__title">
-            <span>ÜáñáõÃÛáõÝÝ»ñ</span>
+            <span>@lang('global.news')</span>
         </h2>
         <div class="container py-4">
             <div class="row justify-content-around">
@@ -365,7 +365,7 @@
             </div>
         </div>
 
-        <a href="{{route('blog')}}" class="button blog-button">¸Çï»É ³í»ÉÇÝ</a>
+        <a href="{{route('blog')}}" class="button blog-button">@lang('global.view-more')</a>
     </section>
 
     <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -373,7 +373,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ä³ïíÇñ»É ½³Ý·</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">@lang('global.order-call')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
@@ -381,16 +381,16 @@
                 <div class="modal-body">
                     <div class="md-form">
                         <input type="text" id="form1" class="form-control">
-                        <label for="form1">²ÝáõÝ</label>
+                        <label for="form1">@lang('global.Your_name')</label>
                     </div>
 
                     <div class="md-form">
                         <input type="text" id="form2" class="form-control phone">
-                        <label for="form2">Ð»é</label>
+                        <label for="form2">@lang('global.Your_email')</label>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="button">àõÕÕ³ñÏ»É</button>
+                    <button type="button" class="button">@lang('global.send')</button>
                 </div>
             </div>
         </div>
