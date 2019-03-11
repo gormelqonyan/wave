@@ -1,5 +1,7 @@
 @extends('layouts.base')
-
+@section('title')
+    {{$blog->locName()}}
+@endsection
 @section('content')
 
     <main>
@@ -7,8 +9,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{route('blog')}}">´Éá·</a></li>
-                    <li class="breadcrumb-item active">John Doue</li>
+                    <li class="breadcrumb-item"><a href="{{route('blog')}}">@lang('global.Blog')</a></li>
+                    <li class="breadcrumb-item active">{{$blog->locName()}}</li>
                 </ol>
             </nav>
         </div>
@@ -19,141 +21,51 @@
                     <div class="col-lg-8">
                         <div class="blog-view">
                             <div class="blog-view-img">
-                                <img src="/lessons/img/loadImg.jpg">
+                                <img src="{{asset('/images/posts/'.$blog->image)}}" rel="{{$blog->locName()}}">
                             </div>
                             <div class="blog-view-title">
-                                <h4>John Due</h4>
+                                <h4>{{$blog->locName()}}</h4>
                             </div>
                             <div class="blog-view-body">
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
+                                <?= $blog->desc();?>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="blog-view-offer d-flex d-lg-block justify-content-between flex-wrap ">
-                            <a href="#">
-                                <div class="blog-view-offer-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-4">
-                                            <div class="blog-view-offer-item-img">
-                                                <img src="/lessons/img/loadImg.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="blog-view-offer-item-body">
-                                                <h4>John Due</h4>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                            </div>
+                            @if(!empty($blogs))
+                                @foreach($blogs as $blog1)
+                                    <a href="{{route('blog-view',['url'=>$blog1->urls()])}}">
+                                        <div class="blog-view-offer-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-4">
+                                                    <div class="blog-view-offer-item-img">
+                                                        <img src="{{asset('/images/posts/'.$blog1->image)}}" rel="{{$blog1->locName()}}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="blog-view-offer-item-body">
+                                                        <h4>{{$blog1->locName()}}</h4>
+                                                        <p> <?= $blog1->desc() ?></p>
+                                                    </div>
 
-                                            <div class="blog-view-offer-item-footer d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                                    <p class="ml-2">01.01.2019</p>
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <p class="ml-2">45</p>
+                                                    <div class="blog-view-offer-item-footer d-flex justify-content-between">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                            <p class="ml-2">{{ date("d:m:Y", strtotime($blog1->created_at))}}</p>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                            <p class="ml-2">{{$blog1->view}}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </a>
+                                    </a>
+                                @endforeach
+                            @endif
 
-                            <a href="#">
-                                <div class="blog-view-offer-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-4">
-                                            <div class="blog-view-offer-item-img">
-                                                <img src="/lessons/img/loadImg.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="blog-view-offer-item-body">
-                                                <h4>John Due</h4>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                            </div>
-
-                                            <div class="blog-view-offer-item-footer d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                                    <p class="ml-2">01.01.2019</p>
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <p class="ml-2">45</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#">
-                                <div class="blog-view-offer-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-4">
-                                            <div class="blog-view-offer-item-img">
-                                                <img src="/lessons/img/loadImg.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="blog-view-offer-item-body">
-                                                <h4>John Due</h4>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                            </div>
-
-                                            <div class="blog-view-offer-item-footer d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                                    <p class="ml-2">01.01.2019</p>
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <p class="ml-2">45</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#">
-                                <div class="blog-view-offer-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-4">
-                                            <div class="blog-view-offer-item-img">
-                                                <img src="/lessons/img/loadImg.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="blog-view-offer-item-body">
-                                                <h4>John Due</h4>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                            </div>
-
-                                            <div class="blog-view-offer-item-footer d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                                    <p class="ml-2">01.01.2019</p>
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    <p class="ml-2">45</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                 </div>
