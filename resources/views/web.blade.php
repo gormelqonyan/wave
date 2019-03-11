@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item active">¸³ëÁÝÃ³óÝ»ñ</li>
+                    <li class="breadcrumb-item active">@lang('global.Courses')</li>
                 </ol>
             </nav>
         </div>
@@ -24,7 +24,7 @@
                         <div class="courses-item">
                             <div class="courses-show d-flex align-items-center">
                                 <i class="fa fa-eye mr-1" aria-hidden="true"></i>
-                                <p>¸Çï»É</p>
+                                <p>@lang('global.view')</p>
                             </div>
                             <div class="courses-img">
                                 <img src="/lessons/img/htmlcss.jpg">
@@ -39,7 +39,7 @@
                         <div class="courses-item">
                             <div class="courses-show d-flex align-items-center">
                                 <i class="fa fa-eye mr-1" aria-hidden="true"></i>
-                                <p>¸Çï»É</p>
+                                <p>@lang('global.view')</p>
                             </div>
                             <div class="courses-img">
                                 <img src="/lessons/img/javascript.jpg">
@@ -54,7 +54,7 @@
                         <div class="courses-item">
                             <div class="courses-show d-flex align-items-center">
                                 <i class="fa fa-eye mr-1" aria-hidden="true"></i>
-                                <p>¸Çï»É</p>
+                                <p>@lang('global.view')</p>
                             </div>
                             <div class="courses-img">
                                 <img src="/lessons/img/php.jpg">
@@ -69,7 +69,7 @@
                         <div class="courses-item">
                             <div class="courses-show d-flex align-items-center">
                                 <i class="fa fa-eye mr-1" aria-hidden="true"></i>
-                                <p>¸Çï»É</p>
+                                <p>@lang('global.view')</p>
                             </div>
                             <div class="courses-img">
                                 <img src="/lessons/img/react.jpg">
@@ -84,7 +84,7 @@
                         <div class="courses-item">
                             <div class="courses-show d-flex align-items-center">
                                 <i class="fa fa-eye mr-1" aria-hidden="true"></i>
-                                <p>¸Çï»É</p>
+                                <p>@lang('global.view')</p>
                             </div>
                             <div class="courses-img">
                                 <img src="/lessons/img/laravel.jpg">

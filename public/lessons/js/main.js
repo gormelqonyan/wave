@@ -78,6 +78,6 @@ $(function() {
 });
 
 var typed = new Typed("#typed", {
-  strings: ["ì»µ Íñ³·ñ³íáñÙ³Ý ¹³ëÁÝÃ³óÝ»ñ"],
+  strings: ["Վեբ ծրագրավորման դասընթացներ"],
   typeSpeed: 50
 });

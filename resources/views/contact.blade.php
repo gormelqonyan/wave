@@ -8,14 +8,14 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item active">Î³å</li>
+                    <li class="breadcrumb-item active">@lang('global.Contact')</li>
                 </ol>
             </nav>
         </div>
 
         <section class="contacts py-2 py-md-4" id="contacts">
             <h2 class="text-center service__title pb-5">
-                <span>Ð»ï³¹³ñÓ Î³å</span>
+                <span>@lang('global.Contact_us')</span>
             </h2>
 
             <div class="container">
@@ -39,7 +39,7 @@
                         <div class="icon d-flex">
                             <i class="fa fa-map-marker m-auto" aria-hidden="true"></i>
                         </div>
-                        <p>Ð³ëó»ª Ð³Ïáµ Ð³ÏáµÛ³Ý 3</p>
+                        <p>@lang('global.Location')</p>
                     </div>
                 </div>
 
@@ -51,25 +51,25 @@
                         <form>
                             <div class="md-form my-3">
                                 <input type="text" id="form1" class="form-control">
-                                <label for="form1">²ÝáõÝ</label>
+                                <label for="form1">@lang('global.Your_name')</label>
                             </div>
 
                             <div class="md-form my-3">
                                 <input type="text" id="form2" class="form-control">
-                                <label for="form2">¾É. Ñ³ëó»</label>
+                                <label for="form2">@lang('global.Email')</label>
                             </div>
 
                             <div class="md-form my-3">
                                 <input type="text" id="form3" class="form-control">
-                                <label for="form3">Ð»é.</label>
+                                <label for="form3">@lang('global.Telephone')</label>
                             </div>
 
                             <div class="md-form">
                                 <textarea type="text" id="form7" class="md-textarea form-control" rows="3"></textarea>
-                                <label for="form7">Ð³Õáñ¹³·ñáõÃÛáõÝ</label>
+                                <label for="form7">@lang('global.Message')</label>
                             </div>
 
-                            <button class="button">àõÕÕ³ñÏ»É <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <button class="button">@lang('global.send') <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         </form>
                     </div>
                 </div>

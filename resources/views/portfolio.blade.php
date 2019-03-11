@@ -7,14 +7,14 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item active">äáñïýáÉÇá</li>
+                    <li class="breadcrumb-item active">@lang('global.Portfolio')</li>
                 </ol>
             </nav>
         </div>
 
         <section class="portfolio my-4" id="portfolio">
             <h1 class="section__title py-2">
-                <span>Ø»ñ åáñïýáÉÇáÝ</span>
+                <span>@lang('global.Our_portfolio')</span>
             </h1>
 
             <div class="container">
