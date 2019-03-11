@@ -58,7 +58,7 @@
                     <iframe width="100%" height="315px" src="https://www.youtube.com/embed/YdQyHaki7Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="col-lg-6 wow slideInRight" data-wow-offset="10">
-                    <div style="height: 315px; background-color: rgba(255,255,255,.5); padding: 1rem;">
+                    <div style="background-color: rgba(255,255,255,.5); padding: 1rem;">
                         <p class="about__text">
                             @lang('global.waveAbout')
                         </p>
