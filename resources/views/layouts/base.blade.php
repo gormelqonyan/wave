@@ -40,11 +40,11 @@
 
             <ul class="d-none d-lg-flex menu">
                 <li><a href="{{route('mainpage')}}">@lang('global.Home')</a></li>
-                <li><a href="{{route('web')}}">¸³ëÁÝÃ³óÝ»ñ </a></li>
-                <li><a href="{{route('about')}}">Ø»ñ Ø³ëÇÝ</a></li>
-                <li><a href="{{route('portfolio')}}">äáñïýáÉÇá</a></li>
-                <li><a href="{{route('blog')}}">´Éá·</a></li>
-                <li><a href="{{route('contact')}}">Î³å</a></li>
+                <li><a href="{{route('web')}}">@lang('global.Courses')</a></li>
+                <li><a href="{{route('about')}}">@lang('global.About')</a></li>
+                <li><a href="{{route('portfolio')}}">@lang('global.Portfolio')</a></li>
+                <li><a href="{{route('blog')}}">@lang('global.Blog')</a></li>
+                <li><a href="{{route('contact')}}">@lang('global.Contact')</a></li>
             </ul>
 
             <div class="btn-group">
@@ -141,7 +141,7 @@
                 <li><a href="#" class="d-flex align-items-center"><i class="mr-1 fa fa-arrow-right" aria-hidden="true"></i>Բլոգ</a></li> -->
                 <li><i class="fa fa-mobile mr-1" aria-hidden="true"></i>+374 (95, 77)-78-97-86</li>
                 <li><i class="fa fa-envelope mr-1" aria-hidden="true"></i>info@wave-it.ru</li>
-                <li><i class="fa fa-map-marker mr-1" aria-hidden="true"></i>Հակոբ Հակոբյան 3</li>
+                <li><i class="fa fa-map-marker mr-1" aria-hidden="true"></i>@lang('global.Location2')</li>
             </ul>
 
 
