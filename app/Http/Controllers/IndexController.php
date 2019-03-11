@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Todo;
 
@@ -35,15 +36,38 @@ class IndexController extends Controller
     }
     public function blog()
     {
-        return view('blog');
+        $blogs = Post::paginate(1);
+
+        return view('blog',['blogs'=>$blogs]);
     }
     public function contact()
     {
         return view('contact');
     }
-    public function blogView()
+    public function blogView($url)
     {
-        return view('blogView');
+        if(config('app.locale') == 'hy'){
+           $name = 'url';
+        }
+        if(config('app.locale') == 'ru'){
+
+            $name = 'url_ru';
+        }
+        if(config('app.locale') == 'en'){
+
+            $name = 'url_en';
+        }
+
+        $blog = Post::where($name,$url)->first();
+
+
+        if (!$blog){
+            return redirect()->back();
+        }
+        $blogs = Post::orderBy('view','DESC')->skip(0)->take(4)->get();
+
+        Post::where('id',$blog->id)->update(['view'=>$blog->view+1]);
+        return view('blogView',['blog'=>$blog,'blogs'=>$blogs]);
     }
 
     public function logo()
@@ -88,7 +112,8 @@ class IndexController extends Controller
     }
      public function web()
     {
-        return view('web');
+        $lessons = Category::whereNull('parent_id')->get();
+        return view('lessons',['lessons'=>$lessons]);
     }
 	 public function design()
     {

@@ -77,6 +77,19 @@ class Category extends Model
         }
 
     }
+    public function urls()
+
+    {
+        if(config('app.locale') == 'hy'){
+            return $this->url;
+        }
+        if(config('app.locale') == 'ru'){
+            return $this->url_ru;
+        } if(config('app.locale') == 'en'){
+            return $this->url_en;
+        }
+
+    }
 
 
 
