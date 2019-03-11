@@ -7,7 +7,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{route('web')}}">¸³ëÁÝÃ³óÝ»ñ</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('web')}}">@lang('global.Courses')</a></li>
                     <li class="breadcrumb-item active">PHP & MySql</li>
                 </ol>
             </nav>
@@ -53,7 +53,7 @@
                         <!-- Card body -->
                         <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx194">
                             <div class="card-body py-3">
-                                <h5 class="text-center">¸³ëÇ ÁÝÃ³óùáõÙ ÏáõëáõÙÝ³ëÇñ»Ýù</h5>
+                                <h5 class="text-center">@lang('global.during-lesson')</h5>
                                 <ol>
                                     <li>ÆÝã ¿ PHP-Ý</li>
                                     <li>öá÷áË³Ï³ÝÝ»ñ, ÏáÝëï³ÝïÝ»ñ</li>
