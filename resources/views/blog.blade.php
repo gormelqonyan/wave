@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
-                                            <p class="ml-2">{{$blog1->view}}</p>
+                                            <p class="ml-2">{{$blog->view}}</p>
                                         </div>
                                     </div>
                                 </div>
