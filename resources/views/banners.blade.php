@@ -1,12 +1,20 @@
 @extends('layouts.base')
-
+@section('title')
+    @lang('global.bann_title')
+@endsection
+@section('metadesc')
+    @lang('global.bann_desc')
+@endsection
+@section('keywords')
+    @lang('global.bann_key')
+@endsection
 @section('content')
 
     <main>
         <div class="container pt-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                     <li class="breadcrumb-item active">@lang('global.banner')</li>
                 </ol>
             </nav>

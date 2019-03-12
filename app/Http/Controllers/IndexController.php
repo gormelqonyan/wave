@@ -13,8 +13,9 @@ class IndexController extends Controller
 {
     public function index()
     {
+        $blogs = Post::orderBy('view','DESC')->skip(0)->take(3)->get();
         $items = Todo::all();
-        return view('index',compact('items'));
+        return view('index',compact('items','blogs'));
     }
 
     public function about()

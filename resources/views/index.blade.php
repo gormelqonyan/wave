@@ -1,6 +1,12 @@
 @extends('layouts.base')
 @section('title')
-
+    @lang('global.index_title')
+@endsection
+@section('metadesc')
+    @lang('global.index_desc')
+@endsection
+@section('keywords')
+    @lang('global.index_key')
 @endsection
 @section('content')
 @if(session()->has('SendMail'))
@@ -20,7 +26,7 @@
                 @if(!empty($items))
                     @foreach($items as $item)
                         <div class="swiper-slide d-flex">
-                            <img src="{{$item->photo}}" class="w-100">
+                            <img src="{{$item->photo}}" class="w-100" rel="{{$item->locName()}}" alt="@lang('global.index_image_alt')">
                             <div class="m-auto sliderText">
                                 {{$item->locName()}}
                             </div>
@@ -38,7 +44,7 @@
     </section>
 
     <div class="d-flex justify-content-center flex-wrap align-items-center py-2 py-md-3">
-        <a href="#" class="button call-order mx-2 d-flex justify-content-center align-items-center">
+        <a href="{{route('order',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}" class="button call-order mx-2 d-flex justify-content-center align-items-center">
             <div class="d-flex justify-content-center align-items-center buttonIcon mr-2">
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </div>
@@ -261,107 +267,39 @@
         </h2>
         <div class="container py-4">
             <div class="row justify-content-around">
-                <div class="col-12 col-md-6 col-lg-4 mt-4">
-                    <a href="blog-view.php">
-                        <div class="blog-box wow fadeInUp" data-wow-offset="100">
-                            <div class="blog-img">
-                                <div class="day d-flex align-items-center">
-                                    <div class="m-auto">
-                                        <p>27</p>
-                                        <p>¸ºÎ</p>
-                                    </div>
-                                </div>
-                                <img src="/lessons/img/loadImg.jpg">
-                            </div>
-                            <div class="blog-body">
-                                <div class="blog-title">
-                                    <h4 class="text-center">John Due</h4>
-                                </div>
-                                <div class="blog-title">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
-                            </div>
-                            <div class="blog-footer d-flex justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <p class="ml-2">01.01.2019</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    <p class="ml-2">45</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @if(!empty($blogs))
+                    @foreach($blogs as $blog)
+                        <div class="col-12 col-md-6 col-lg-4 mt-4">
+                            <a href="{{route('blog-view',['locale'=>\Illuminate\Support\Facades\App::getLocale(),'url'=>$blog->urls()])}}">
+                                <div class="blog-box wow fadeInUp" data-wow-offset="100">
+                                    <div class="blog-img">
 
-                <div class="col-12 col-md-6 col-lg-4 mt-4">
-                    <a href="blog-view.php">
-                        <div class="blog-box wow fadeInUp" data-wow-offset="100">
-                            <div class="blog-img">
-                                <div class="day d-flex align-items-center">
-                                    <div class="m-auto">
-                                        <p>27</p>
-                                        <p>¸ºÎ</p>
+                                        <img src="{{asset('/images/posts/'.$blog->image)}}">
+                                    </div>
+                                    <div class="blog-body">
+                                        <div class="blog-title">
+                                            <h4 class="text-center">{{$blog->locName()}}</h4>
+                                        </div>
+                                        <div class="blog-title">
+                                            <p><?= substr($blog->desc(),0 , 200); ?>...</p>
+                                        </div>
+                                    </div>
+                                    <div class="blog-footer d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                            <p class="ml-2">{{ date("d.m.Y", strtotime($blog->created_at))}}</p>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <p class="ml-2">{{$blog->view}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <img src="/lessons/img/loadImg.jpg">
-                            </div>
-                            <div class="blog-body">
-                                <div class="blog-title">
-                                    <h4 class="text-center">John Due</h4>
-                                </div>
-                                <div class="blog-title">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
-                            </div>
-                            <div class="blog-footer d-flex justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <p class="ml-2">01.01.2019</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    <p class="ml-2">45</p>
-                                </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
 
-                <div class="col-12 col-md-6 col-lg-4 mt-4">
-                    <a href="blog-view.php">
-                        <div class="blog-box wow fadeInUp" data-wow-offset="100">
-                            <div class="blog-img">
-                                <div class="day d-flex align-items-center">
-                                    <div class="m-auto">
-                                        <p>27</p>
-                                        <p>¸ºÎ</p>
-                                    </div>
-                                </div>
-                                <img src="/lessons/img/loadImg.jpg">
-                            </div>
-                            <div class="blog-body">
-                                <div class="blog-title">
-                                    <h4 class="text-center">John Due</h4>
-                                </div>
-                                <div class="blog-title">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                                </div>
-                            </div>
-                            <div class="blog-footer d-flex justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <p class="ml-2">01.01.2019</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    <p class="ml-2">45</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    @endforeach
+                @endif
 
             </div>
         </div>

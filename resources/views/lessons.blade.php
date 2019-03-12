@@ -1,5 +1,10 @@
 @extends('layouts.base')
-
+@section('title')
+    @lang('global.web_title')
+@endsection
+@section('metadesc')
+    @lang('global.web_desc')
+@endsection
 @section('content')
     <main style="background: #222;">
 
@@ -29,7 +34,7 @@
                                         <p>@lang('global.view-more')</p>
                                     </div>
                                     <div class="courses-img">
-                                        <img src="{{asset('images/categories/'.$lesson->image)}}" rel="{{$lesson->locName()}}">
+                                        <img src="{{asset('images/categories/'.$lesson->image)}}" rel="{{$lesson->locName()}}" alt=" @lang('global.web_image_alt')">
                                     </div>
                                     <div class="courses-title">
                                         <p>{{$lesson->locName()}}</p>

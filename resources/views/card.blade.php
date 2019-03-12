@@ -1,12 +1,20 @@
 @extends('layouts.base')
-
+@section('title')
+    @lang('global.cart_title')
+@endsection
+@section('metadesc')
+    @lang('global.cart_desc')
+@endsection
+@section('keywords')
+    @lang('global.cart_key')
+@endsection
 @section('content')
 
     <main>
         <div class="container pt-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                     <li class="breadcrumb-item active">@lang('global.card')</li>
                 </ol>
             </nav>

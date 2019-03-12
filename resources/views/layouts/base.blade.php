@@ -7,7 +7,8 @@
     <title>@yield('title')</title>
     <meta name="title" content="@yield('title')">
     <meta name="description" content="@yield('metadesc')">
-    <meta name="author" content="@yield('author')">
+
+    <meta name="keywords" content="@yield('keywords')">
     <!--Plugins CSS-->
     <link rel="stylesheet" type="text/css" href="/lessons/css/plugin/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/lessons/css/plugin/mdb.min.css">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/lessons/css/plugin/animate.css">
     <link rel="stylesheet" type="text/css" href="/lessons/css/plugin/lightbox.min.css">
 
-
+    <link rel="icon" type="image/x-icon" href="{{asset('/lessons/img/logo.png')}}">
     <link rel="stylesheet" type="text/css" href="/lessons/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="/lessons/css/main.css">

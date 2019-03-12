@@ -1,12 +1,20 @@
 @extends('layouts.base')
-
+@section('title')
+    @lang('global.port_title')
+@endsection
+@section('metadesc')
+    @lang('global.port_desc')
+@endsection
+@section('keywords')
+    @lang('global.port_key')
+@endsection
 @section('content')
     <main>
 
         <div class="container pt-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                     <li class="breadcrumb-item active">@lang('global.Portfolio')</li>
                 </ol>
             </nav>
@@ -25,7 +33,7 @@
                                 <div class="portfolio-box wow zoomIn" data-wow-offset="70">
                                     <div class="portfolio-box-hover d-flex"></div>
                                     <h4 class="m-auto text-center">сущевский двор</h4>
-                                    <img src="/lessons/img/syshevskiydvor-min-min.jpg">
+                                    <img alt="@lang('global.port_image_alt')" src="/lessons/img/syshevskiydvor-min-min.jpg" >
                                 </div>
                             </a>
                         </div>
@@ -34,7 +42,7 @@
                                 <div class="portfolio-box wow zoomIn" data-wow-offset="70" data-wow-delay="0.2s">
                                     <div class="portfolio-box-hover d-flex"></div>
                                     <h4 class="m-auto text-center">TNTESAKAN</h4>
-                                    <img src="/lessons/img/tntesakan-min.jpg">
+                                    <img alt="@lang('global.port_image_alt')" src="/lessons/img/tntesakan-min.jpg">
                                 </div>
                             </a>
                         </div>
@@ -43,7 +51,7 @@
                                 <div class="portfolio-box wow zoomIn" data-wow-offset="70" data-wow-delay="0.4s">
                                     <div class="portfolio-box-hover d-flex"></div>
                                     <h4 class="m-auto text-center">SION GROUP</h4>
-                                    <img src="/lessons/img/siongroup.jpg">
+                                    <img alt="@lang('global.port_image_alt')" src="/lessons/img/siongroup.jpg">
                                 </div>
                             </a>
                         </div>
@@ -52,7 +60,7 @@
                                 <div class="portfolio-box wow zoomIn" data-wow-offset="70" data-wow-delay="0.6s">
                                     <div class="portfolio-box-hover d-flex"></div>
                                     <h4 class="m-auto text-center">ANAU</h4>
-                                    <img src="/lessons/img/anau-min-min.jpg">
+                                    <img alt="@lang('global.port_image_alt')" src="/lessons/img/anau-min-min.jpg">
                                 </div>
                             </a>
                         </div>
@@ -62,7 +70,7 @@
                                 <div class="portfolio-box wow zoomIn" data-wow-offset="70" data-wow-delay="0.8s">
                                     <div class="portfolio-box-hover d-flex"></div>
                                     <h4 class="m-auto text-center">TATA-PARIKMAKHERSKI</h4>
-                                    <img src="/lessons/img/tata.jpg">
+                                    <img alt="@lang('global.port_image_alt')" src="/lessons/img/tata.jpg">
                                 </div>
                             </a>
                         </div>
@@ -71,7 +79,7 @@
                                 <div class="portfolio-box wow zoomIn" data-wow-offset="70" data-wow-delay="1s">
                                     <div class="portfolio-box-hover d-flex"></div>
                                     <h4 class="m-auto text-center">car rental in germany</h4>
-                                    <img src="/lessons/img/screencapture-min-min.jpg">
+                                    <img alt="@lang('global.port_image_alt')" src="/lessons/img/screencapture-min-min.jpg">
                                 </div>
                             </a>
                         </div>

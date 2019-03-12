@@ -1,5 +1,6 @@
 @extends('layouts.base')
 
+
 @section('content')
     <main style="background: #222;">
 

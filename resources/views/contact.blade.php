@@ -1,5 +1,15 @@
 @extends('layouts.base')
 
+@section('title')
+    @lang('global.contact_title')
+@endsection
+@section('metadesc')
+    @lang('global.contact_desc')
+@endsection
+@section('keywords')
+    @lang('global.contact_key')
+@endsection
+
 @section('content')
 
     <main>
@@ -7,7 +17,7 @@
         <div class="container pt-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                     <li class="breadcrumb-item active">@lang('global.Contact')</li>
                 </ol>
             </nav>
@@ -32,7 +42,7 @@
                         <div class="icon d-flex">
                             <i class="fa fa-envelope m-auto" aria-hidden="true"></i>
                         </div>
-                        <p>¾É. Ñ³ëó»ª info@wave-it.ru </p>
+                        <p>@lang('global.Email') info@wave-it.ru </p>
                     </div>
 
                     <div class="contactBox text-center">
@@ -48,7 +58,7 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.459778275848!2d44.4885341153893!3d40.19883437939109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd6beca25551%3A0x9192912c6f698e91!2s3+Hakob+Hakobyan+St%2C+Yerevan+0033!5e0!3m2!1sru!2s!4v1542179406201" style="border:0; width: 100%; height: 410px;" allowfullscreen=""></iframe>
                     </div>
                     <div class="col-md-6">
-                        <form>
+                        <form method="post">
                             <div class="md-form my-3">
                                 <input type="text" id="form1" class="form-control">
                                 <label for="form1">@lang('global.Your_name')</label>
@@ -69,7 +79,7 @@
                                 <label for="form7">@lang('global.Message')</label>
                             </div>
 
-                            <button class="button">@lang('global.send') <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <button type="submit" class="button">@lang('global.send') <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         </form>
                     </div>
                 </div>

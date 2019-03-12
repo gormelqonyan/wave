@@ -1,5 +1,13 @@
 @extends('layouts.base')
-
+@section('title')
+    @lang('global.blog_title')
+@endsection
+@section('metadesc')
+    @lang('global.blog_desc')
+@endsection
+@section('keywords')
+    @lang('global.blog_key')
+@endsection
 @section('content')
 
     <main>
@@ -7,7 +15,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item active">´Éá·</li>
+                    <li class="breadcrumb-item active"> @lang('global.Blog')</li>
                 </ol>
             </nav>
         </div>
