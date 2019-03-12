@@ -6,18 +6,34 @@ use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Todo;
+use Illuminate\Support\Facades\App;
+
 
 class IndexController extends Controller
 {
     public function index()
     {
-        $item = Todo::all();
-        return view('index',compact('item'));
+        $items = Todo::all();
+        return view('index',compact('items'));
     }
 
     public function about()
     {
         return view('about');
+    }
+    public function redir()
+    {
+        $ip = \Request::ip();
+        $data = \Location::get($ip);
+        $countryCode = $data->countryCode;
+
+        if ($countryCode == 'AM') {
+            return redirect('hy');
+        } elseif ($countryCode == 'RU') {
+            return redirect('ru');
+        }else{
+            return redirect('en');
+        }
     }
 
     public function team()
@@ -25,7 +41,7 @@ class IndexController extends Controller
         return view('team');
     }
 
-    public function lessons($url)
+    public function lessons($location,$url)
     {
         $lesson = Category::where('url',$url)->first();
 
@@ -44,7 +60,7 @@ class IndexController extends Controller
     {
         return view('contact');
     }
-    public function blogView($url)
+    public function blogView($location,$url)
     {
         if(config('app.locale') == 'hy'){
            $name = 'url';
@@ -102,10 +118,11 @@ class IndexController extends Controller
     {
         return view('oop');
     }
-    public function js()
+    public function logos()
     {
         return view('js');
     }
+
     public function php()
     {
         return view('php');

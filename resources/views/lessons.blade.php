@@ -11,8 +11,8 @@
         <div class="container pt-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item active">¸³ëÁÝÃ³óÝ»ñ</li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item active">@lang('global.Courses')</li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                 <div class="d-flex flex-wrap justify-content-around">
                     @if(!empty($lessons))
                         @foreach($lessons as $lesson)
-                            <a href="{{route('lesson',['url'=>$lesson->urls()])}}" class="wow zoomIn" data-wow-offset="100">
+                            <a href="{{route('lesson',['locale'=>\Illuminate\Support\Facades\App::getLocale(),'url'=>$lesson->urls()])}}" class="wow zoomIn" data-wow-offset="100">
                                 <div class="courses-item">
                                     <div class="courses-show d-flex align-items-center">
                                         <i class="fa fa-eye mr-1" aria-hidden="true"></i>

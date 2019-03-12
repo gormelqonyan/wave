@@ -43,7 +43,7 @@
 
             <div class="form-group">
 
-                {!! Form::label('name', 'Անուն հայերեն') !!}
+                {!! Form::label('name', 'Անուն հայերեն *') !!}
 
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 @if ($errors->has('name'))
@@ -55,7 +55,7 @@
             </div>
             <div class="form-group">
 
-                {!! Form::label('name_ru', 'Անուն ռուսերեն') !!}
+                {!! Form::label('name_ru', 'Անուն ռուսերեն *') !!}
 
                 {!! Form::text('name_ru', null, ['class' => 'form-control']) !!}
                 @if ($errors->has('name_ru'))
@@ -67,12 +67,63 @@
             </div>
             <div class="form-group">
 
-                {!! Form::label('url', 'Հղում (Անգլերեն տառերով օրինակ `drner`)') !!}
+                {!! Form::label('url', 'Հղում (Անգլերեն տառերով օրինակ `drner`*)') !!}
 
                 {!! Form::text('url', null, ['class' => 'form-control']) !!}
                 @if ($errors->has('url'))
 
                     <div class="invalid-feedback">{{ $errors->first('url') }}</div>
+
+                @endif
+
+            </div>
+            <div class="form-group">
+
+                {!! Form::label('name_en', 'Անուն Անգլերեն *') !!}
+
+                {!! Form::text('url', null, ['class' => 'form-control']) !!}
+                @if ($errors->has('url'))
+
+                    <div class="invalid-feedback">{{ $errors->first('url') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('description', 'Նկարագրություն հայերեն *') !!}
+
+                {!! Form::textarea('description', null, ['rows'=>3, 'id'=>'editor', 'class' => $errors->has('description') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('description'))
+
+                    <div class="invalid-feedback">{{ $errors->first('description') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('description_ru', 'Նկարագրություն ռուսերեն *') !!}
+
+                {!! Form::textarea('description_ru', null, ['rows'=>3, 'id'=>'editor2', 'class' => $errors->has('description_ru') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('description_ru'))
+
+                    <div class="invalid-feedback">{{ $errors->first('description_ru') }}</div>
+
+                @endif
+
+            </div>
+            <div class= "form-group" >
+
+                {!! Form::label('description_en', 'Նկարագրություն Անգլերեն  *') !!}
+
+                {!! Form::textarea('description_en', null, ['rows'=>3, 'id'=>'editor3',  'class' => $errors->has('description_en') ? 'form-control is-invalid' : 'form-control']) !!}
+
+                @if ($errors->has('description_en'))
+
+                    <div class="invalid-feedback">{{ $errors->first('description_en') }}</div>
 
                 @endif
 
@@ -91,7 +142,6 @@
                 @endif
 
             </div>
-
             @if(!empty($mains))
                 {!! Form::label('category', 'Որ կատեգորիայի եթախումբ *') !!}
                 <div class="form-group">

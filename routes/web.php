@@ -11,60 +11,50 @@
 |
 */
 
-Route::get('/', 'IndexController@index')->name('mainpage');
-Route::get('/logoneri-patrastum', 'IndexController@logo')->name('logo');
-Route::get('/ayceqarteri-patrastum', 'IndexController@card')->name('card');
-Route::get('/web-kayqer-yev-logoner', 'IndexController@portfolio')->name('portfolio');
-Route::get('/web-kayqeri-patrastum', 'IndexController@about')->name('about');
-Route::get('/blog', 'IndexController@blog')->name('blog');
-Route::get('/blog-view/{url}', 'IndexController@blogView')->name('blog-view');
-Route::any('/contact', 'IndexController@contact')->name('contact');
-Route::get('/web-kayqeri-spasarkum', 'IndexController@team')->name('team');
-Route::get('/order', 'IndexController@order')->name('order');
-Route::get('/javascript-dasyntacner', 'IndexController@js')->name('js');
-Route::get('/web-dasyntacner', 'IndexController@web')->name('web');
-Route::get('/html-dasyntacner', 'IndexController@html')->name('html');
-Route::get('/php-dasyntacner', 'IndexController@php')->name('php');
-Route::get('/react-dasyntacner', 'IndexController@react')->name('react');
-Route::get('/laravel', 'IndexController@oop')->name('oop');
-Route::get('/bnakarani-3d-design', 'IndexController@design')->name('design');
-Route::get('/flesh-banneri-patrastum', 'IndexController@banners')->name('banners');
+Route::get('/', 'IndexController@redir')->name('index');
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'],'middleware' => 'setlocale' ], function () {
 
 
-Route::get('getip', function () {
-	$ip = \Request::ip();
-    $data = \Location::get($ip);
-    // dd($data->countryCode);
+
+    Auth::routes();
+    Route::get('/', 'IndexController@index')->name('mainpage');
+    Route::get('/logoneri-patrastum', 'IndexController@logo')->name('logo');
+    Route::get('/ayceqarteri-patrastum', 'IndexController@card')->name('card');
+    Route::get('/web-kayqer-yev-logoner', 'IndexController@portfolio')->name('portfolio');
+    Route::get('/web-kayqeri-patrastum', 'IndexController@about')->name('about');
+    Route::get('/blog', 'IndexController@blog')->name('blog');
+    Route::get('/blog-view/{url}', 'IndexController@blogView')->name('blog-view');
+    Route::any('/contact', 'IndexController@contact')->name('contact');
+    Route::get('/web-kayqeri-spasarkum', 'IndexController@team')->name('team');
+    Route::get('/order', 'IndexController@order')->name('order');
+    Route::get('/javascript-dasyntacner', 'IndexController@js')->name('js');
+    Route::get('/web-dasyntacner', 'IndexController@web')->name('web');
+    Route::get('/html-dasyntacner', 'IndexController@html')->name('html');
+    Route::get('/php-dasyntacner', 'IndexController@php')->name('php');
+    Route::get('/react-dasyntacner', 'IndexController@react')->name('react');
+    Route::get('/laravel', 'IndexController@oop')->name('oop');
+    Route::get('/bnakarani-3d-design', 'IndexController@design')->name('design');
+    Route::get('/flesh-banneri-patrastum', 'IndexController@banners')->name('banners');
+    Route::post('mail/send', 'OrderMailController@send')->name('order_mail_post');
+    Route::get('/lesson/{url}', 'IndexController@lessons')->name('lesson');
+
+    Route::get('/clear-cache', function() {
+        $exitCode = Artisan::call('config:clear');
+        $exitCode = Artisan::call('cache:clear');
+        $exitCode = Artisan::call('config:cache');
+        return 'DONE'; //Return anything
+    });
 });
-
-
-Route::get('language/{locale}', function ($locale) {
-
-    // dd($locale);
-
-    Session::put('locale', $locale);
-    // dd(Session::get('locale'));
-    return redirect()->back();
-
-    //
-})->name('lanuage');
-
-Route::get('/ba', function () {
-    return view('ba');
-});
-
-Auth::routes();
-
-Route::group(['prefix'=>'admin'], function() {
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::resource('contact', 'ContactController');
-    Route::put('contact', 'ContactController@rem')->name('rem');
-    Route::get('rem_contacts', 'ContactController@rem_contacts')->name('rem_contacts');
-    Route::resource('order', 'OrderController');
-    Route::resource('slide', 'TodoController')->middleware('auth');
-
-
-});
+//Route::group(['prefix'=>'admin'], function() {
+//    Route::get('/', 'HomeController@index')->name('home');
+//    Route::resource('contact', 'ContactController');
+//    Route::put('contact', 'ContactController@rem')->name('rem');
+//    Route::get('rem_contacts', 'ContactController@rem_contacts')->name('rem_contacts');
+//    Route::resource('order', 'OrderController');
+//    Route::resource('slide', 'TodoController')->middleware('auth');
+//
+//
+//});
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 
@@ -254,12 +244,13 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
 });
 
 
-Route::post('mail/send', 'OrderMailController@send')->name('order_mail_post');
-Route::get('/lesson/{url}', 'IndexController@lessons')->name('lesson');
 
-Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('config:clear');
-    $exitCode = Artisan::call('cache:clear');
-    $exitCode = Artisan::call('config:cache');
-    return 'DONE'; //Return anything
+Route::get('/ba', function () {
+    return view('ba');
+});
+
+Route::get('getip', function () {
+    $ip = \Request::ip();
+    $data = \Location::get($ip);
+    // dd($data->countryCode);
 });

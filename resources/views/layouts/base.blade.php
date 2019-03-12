@@ -5,7 +5,9 @@
     <meta charset="utf-8">
 
     <title>@yield('title')</title>
-
+    <meta name="title" content="@yield('title')">
+    <meta name="description" content="@yield('metadesc')">
+    <meta name="author" content="@yield('author')">
     <!--Plugins CSS-->
     <link rel="stylesheet" type="text/css" href="/lessons/css/plugin/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/lessons/css/plugin/mdb.min.css">
@@ -31,7 +33,7 @@
 <header id="header" class="header active py-2">
     <nav class="container ">
         <div class="d-flex justify-content-between align-items-center">
-            <a href="{{route('mainpage')}}">
+            <a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">
                 <div class="logo">
                     <img src="/lessons/img/logo.png">
                 </div>
@@ -39,25 +41,77 @@
 
 
             <ul class="d-none d-lg-flex menu">
-                <li><a href="{{route('mainpage')}}">@lang('global.Home')</a></li>
-                <li><a href="{{route('web')}}">@lang('global.Courses')</a></li>
-                <li><a href="{{route('about')}}">@lang('global.About')</a></li>
-                <li><a href="{{route('portfolio')}}">@lang('global.Portfolio')</a></li>
-                <li><a href="{{route('blog')}}">@lang('global.Blog')</a></li>
-                <li><a href="{{route('contact')}}">@lang('global.Contact')</a></li>
+                <li><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Home')</a></li>
+                <li><a href="{{route('web',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Courses')</a></li>
+                <li><a href="{{route('about',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.About')</a></li>
+                <li><a href="{{route('portfolio',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Portfolio')</a></li>
+                <li><a href="{{route('blog',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Blog')</a></li>
+                <li><a href="{{route('contact',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Contact')</a></li>
             </ul>
+{{--            {{dd(Request::segments())}}--}}
+            <?php
+            $segments = Request::segments();
 
+            ?>
             <div class="btn-group">
                 <!--Dropdown primary-->
                 <div class="dropdown">
+                    @if(\Illuminate\Support\Facades\App::getLocale() == 'hy')
                     <!--Trigger-->
-                    <button class="btn dropdown-toggle p-0" style="display: flex; align-items: center;" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><img src="/lessons/img/hy.png" width="20px" height="auto"></button>
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary" style="min-width: 50px;">
-                        <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="#"><img src="/lessons/img/ru.png"></a>
-                        <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="#"><img src="/lessons/img/en.png"></a>
-                    </div>
+                        <button class="btn dropdown-toggle p-0" style="display: flex; align-items: center;" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><img src="/lessons/img/hy.png" width="20px" height="auto"></button>
+                        <!--Menu-->
+                        <div class="dropdown-menu dropdown-primary" style="min-width: 50px;">
+                            <?php
+                            $segments[0] = 'ru';
+                            $url = implode('/', $segments);
+
+                            ?>
+                            <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="{{ route('index').'/'.$url }}"><img src="/lessons/img/ru.png"></a>
+                                <?php
+                                $segments[0] = 'en';
+                                $url = implode('/', $segments);
+
+                                ?>
+                            <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="{{ route('index').'/'.$url  }}"><img src="/lessons/img/en.png"></a>
+                        </div>
+                    @elseif(\Illuminate\Support\Facades\App::getLocale() == 'ru')
+                            <button class="btn dropdown-toggle p-0" style="display: flex; align-items: center;" type="button"  id="dropdownMenu1" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"><img src="/lessons/img/ru.png" width="20px" height="auto"></button>
+                            <!--Menu-->
+                            <div class="dropdown-menu dropdown-primary" style="min-width: 50px;">
+                                <?php
+                                $segments[0] = 'hy';
+                                $url = implode('/', $segments);
+
+                                ?>
+                                <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="{{ route('index').'/'.$url  }}"><img width="24px" src="/lessons/img/hy.png"></a>
+                                <?php
+                                $segments[0] = 'en';
+                                $url = implode('/', $segments);
+
+                                ?>
+                                <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="{{ route('index').'/'.$url  }}"><img src="/lessons/img/en.png"></a>
+                            </div>
+                    @else
+                            <button class="btn dropdown-toggle p-0" style="display: flex; align-items: center;" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"><img src="/lessons/img/en.png" width="20px" height="auto"></button>
+                            <!--Menu-->
+                            <div class="dropdown-menu dropdown-primary" style="min-width: 50px;">
+                                <?php
+                                $segments[0] = 'ru';
+                                $url = implode('/', $segments);
+
+                                ?>
+                                <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="{{ route('index').'/'.$url  }}"><img  src="/lessons/img/ru.png"></a>
+                                    <?php
+                                    $segments[0] = 'hy';
+                                    $url = implode('/', $segments);
+
+                                    ?>
+                                <a class="dropdown-item" style="padding: .2rem; text-align: center;" href="{{ route('index').'/'.$url  }}"><img width="24px" src="/lessons/img/hy.png"></a>
+                            </div>
+                    @endif
                 </div>
                 <!--/Dropdown primary-->
             </div>
@@ -72,22 +126,22 @@
 <nav class="sub-menu">
     <ul>
         <li>
-            <a href="index.php">¶ÉË³íáñ</a>
+            <a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Home')</a>
         </li>
         <li>
-            <a href="courses.php">¸³ëÁÝÃ³óÝ»ñ</a>
+            <a href="{{route('web',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Courses')</a>
         </li>
         <li>
-            <a href="about.php">Ø»ñ Ø³ëÇÝ</a>
+            <a href="{{route('about',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.About')</a>
         </li>
         <li>
-            <a href="portfolio.php">äáñïýáÉÇá</a>
+            <a href="{{route('portfolio',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Portfolio')</a>
         </li>
         <li>
-            <a href="blog.php">´Éá·</a>
+            <a href="{{route('blog',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Blog')</a>
         </li>
         <li>
-            <a href="contact.php">Î³å</a>
+            <a href="{{route('contact',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Contact')</a>
         </li>
     </ul>
 </nav>
@@ -145,7 +199,7 @@
             </ul>
 
 
-            
+
         </div>
     </div>
 </footer>
@@ -160,7 +214,7 @@
 <script type="text/javascript" src="/lessons/js/plugin/jquery.easypiechart.min.js"></script>
 <script type="text/javascript" src="/lessons/js/plugin/particles.min.js"></script>
 <script type="text/javascript" src="/lessons/js/plugin/app.js"></script>
-<script type="text/javascript" src="/lessons/js/plugin/typed.min.js"></script>
+
 <script type="text/javascript" src="/lessons/js/plugin/wow.min.js"></script>
 <script type="text/javascript" src="/lessons/js/plugin/lightbox.js"></script>
 <script type="text/javascript" src="/lessons/js/plugin/jquery.maskedinput.min.js"></script>

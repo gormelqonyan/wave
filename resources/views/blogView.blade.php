@@ -8,8 +8,8 @@
         <div class="container pt-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{route('blog')}}">@lang('global.Blog')</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('blog',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Blog')</a></li>
                     <li class="breadcrumb-item active">{{$blog->locName()}}</li>
                 </ol>
             </nav>
@@ -35,7 +35,7 @@
                         <div class="blog-view-offer d-flex d-lg-block justify-content-between flex-wrap ">
                             @if(!empty($blogs))
                                 @foreach($blogs as $blog1)
-                                    <a href="{{route('blog-view',['url'=>$blog1->urls()])}}">
+                                    <a href="{{route('blog-view',['locale'=>\Illuminate\Support\Facades\App::getLocale(),'url'=>$blog1->urls()])}}">
                                         <div class="blog-view-offer-item">
                                             <div class="row align-items-center">
                                                 <div class="col-4">

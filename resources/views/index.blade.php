@@ -1,11 +1,13 @@
 @extends('layouts.base')
+@section('title')
 
+@endsection
 @section('content')
 @if(session()->has('SendMail'))
-                <div class="alert alert-success">
-                    <script>alert('Նամակը Ուղղարկված է։ Շնորհակալություն'); </script>
-                </div>
-        @endif
+    <div class="alert alert-success">
+        <script>alert('Նամակը Ուղղարկված է։ Շնորհակալություն'); </script>
+    </div>
+@endif
 
 
 
@@ -15,18 +17,17 @@
     <section class="banner" id="banner">
         <div class="swiper-container baner">
             <div class="swiper-wrapper">
-                <div class="swiper-slide d-flex">
-                    <img src="/lessons/img/slide1.jpg" class="w-100">
-                    <div class="m-auto sliderText">
-                        ÆÜîºðÜºî ¶àì²¼¸ Î²ÚøºðÆ ²è²æÊ²Ô²òàôØ SEO ²è²æÊ²Ô²òàôØ
-                    </div>
-                </div>
-                <div class="swiper-slide d-flex">
-                    <img src="/lessons/img/slide1.jpg" class="w-100">
-                    <div class="m-auto sliderText">
-                        ÆÜîºðÜºî ¶àì²¼¸ Î²ÚøºðÆ ²è²æÊ²Ô²òàôØ SEO ²è²æÊ²Ô²òàôØ
-                    </div>
-                </div>
+                @if(!empty($items))
+                    @foreach($items as $item)
+                        <div class="swiper-slide d-flex">
+                            <img src="{{$item->photo}}" class="w-100">
+                            <div class="m-auto sliderText">
+                                {{$item->locName()}}
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
@@ -234,10 +235,10 @@
                 <div class="col-xl-4 col-md-6 text-center mt-4">
                     <div class="service__box wow zoomIn" data-wow-offset="70" data-wow-delay="0.4s">
                         <h3>@lang('global.Graphic_design')</h3>
-                        <p><a href="logoPage.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.logo')</a></p>
-                        <p><a href="visit.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.card')</a></p>
-                        <p><a href="3ddesign.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.3d')</a></p>
-                        <p><a href="banner.php"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.Banner_creation')</a></p>
+                        <p><a href="{{route('logo',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.logo')</a></p>
+                        <p><a href="{{route('card',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.card')</a></p>
+                        <p><a href="{{route('design',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.3d')</a></p>
+                        <p><a href="{{route('banners',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-arrow-right mr-2" aria-hidden="true"></i>@lang('global.Banner_creation')</a></p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 text-center mt-4">
@@ -365,7 +366,7 @@
             </div>
         </div>
 
-        <a href="{{route('blog')}}" class="button blog-button">@lang('global.view-more')</a>
+        <a href="{{route('blog',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}" class="button blog-button">@lang('global.view-more')</a>
     </section>
 
     <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

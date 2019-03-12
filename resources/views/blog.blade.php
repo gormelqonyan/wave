@@ -6,7 +6,7 @@
         <div class="container pt-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                     <li class="breadcrumb-item active">´Éá·</li>
                 </ol>
             </nav>
@@ -18,7 +18,7 @@
                     @foreach($blogs as $blog)
 
                         <div class="col-12 col-md-6 col-lg-4 mt-4">
-                            <a href="{{route('blog-view',['url'=>$blog->urls()])}}">
+                            <a href="{{route('blog-view',['locale'=>\Illuminate\Support\Facades\App::getLocale(),'url'=>$blog->urls()])}}">
                                 <div class="blog-box">
                                     <div class="blog-img">
 

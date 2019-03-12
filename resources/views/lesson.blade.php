@@ -7,8 +7,8 @@
         <div class="container pt-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('mainpage')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{route('web')}}">@lang('global.Courses')</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('mainpage',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{route('web',['locale'=>\Illuminate\Support\Facades\App::getLocale()])}}">@lang('global.Courses')</a></li>
                     <li class="breadcrumb-item active">{{$lesson->name}}</li>
                 </ol>
             </nav>
@@ -72,4 +72,7 @@
 
     </main>
 
+@endsection
+@section('script')
+    <script type="text/javascript" src="/lessons/js/plugin/typed.min.js"></script>
 @endsection
